@@ -34,8 +34,8 @@ export default function FacilityCard() {
             <Image
               src={facility.image}
               alt="facility"
-              width={100}
-              height={450}
+              width={4000}
+              height={4000}
               className="absolute w-full h-full object-cover inset-0"
             />
             <div className="backdrop-brightness-[.60] group-hover:backdrop-brightness-[.40] w-full h-full flex flex-col items-center justify-end p-10 transition-all duration-300 ease-in-out">
