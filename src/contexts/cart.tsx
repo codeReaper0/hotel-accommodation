@@ -1,3 +1,4 @@
+"use client";
 import {createContext, useEffect, useState} from "react";
 
 export const CartContext = createContext<CartContextValue | undefined>(
@@ -7,16 +8,12 @@ export const CartContext = createContext<CartContextValue | undefined>(
 interface CartItem {
   id: number;
   title: string;
-  description: string;
+  adult: string;
+  children: string;
   price: number;
-  discountPercentage: number;
   rating: number;
-  stock: number;
-  brand: string;
-  category: string;
-  thumbnail: string;
-  images: string[];
   quantity: number;
+  thumbnail: string;
 }
 
 interface CartContextValue {
@@ -28,13 +25,18 @@ interface CartContextValue {
 }
 
 export const CartProvider = ({children}: any) => {
-  const [cartItems, setCartItems] = useState<CartItem[]>(() => {
-    const storedItems = localStorage.getItem("cartItems");
-    if (storedItems && typeof storedItems === "string") {
-      return JSON.parse(storedItems) as CartItem[];
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+
+  useEffect(() => {
+    const cartItems = localStorage.getItem("cartItems");
+    if (cartItems) {
+      setCartItems(JSON.parse(cartItems));
     }
-    return [];
-  });
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
 
   const addToCart = (item: CartItem) => {
     const isItemInCart = cartItems.find((cartItem) => cartItem.id === item.id);
@@ -78,17 +80,6 @@ export const CartProvider = ({children}: any) => {
       0
     );
   };
-
-  useEffect(() => {
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  }, [cartItems]);
-
-  useEffect(() => {
-    const cartItems = localStorage.getItem("cartItems");
-    if (cartItems) {
-      setCartItems(JSON.parse(cartItems));
-    }
-  }, []);
 
   return (
     <CartContext.Provider
