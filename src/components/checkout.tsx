@@ -1,11 +1,11 @@
 "use client";
 import React, {Fragment, useState, useContext} from "react";
 import {Dialog, Transition} from "@headlessui/react";
-import {CartContext} from "@/contexts/cart";
+import {CartContext, CartContextValue} from "@/contexts/cart";
 import {XCircleIcon} from "@heroicons/react/24/outline";
 
 export default function Checkout() {
-  const {clearCart} = useContext(CartContext);
+  const {clearCart} = useContext(CartContext) as CartContextValue;
 
   const [isOpen, setIsOpen] = useState(false);
   const [isSuccessOpen, setIsSuccessOpen] = useState(false);
