@@ -7,7 +7,7 @@ export default function Policy() {
       <Header />
       <section className="p-10 bg-gray-100">
         <div className="max-w-7xl mx-auto">
-          <div className="flex justify-between items-center px-20 py-5">
+          <div className="px-20 py-5">
             <h1 className="text-4xl uppercase font-bold my-10 text-center">
               Privacy and Policy
             </h1>
