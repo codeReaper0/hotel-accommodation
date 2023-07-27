@@ -83,8 +83,3 @@ export default function Cart({showModal, toggle}) {
     )
   );
 }
-
-Cart.propTypes = {
-  showModal: PropTypes.bool,
-  toggle: PropTypes.func,
-};
