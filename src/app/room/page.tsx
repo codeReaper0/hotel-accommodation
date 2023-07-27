@@ -1,7 +1,7 @@
 "use client";
 import React, {useState, useEffect, useContext} from "react";
 import Header from "@/components/roomHeader";
-import {CartContext} from "@/contexts/cart";
+import {CartContext, CartContextValue} from "@/contexts/cart";
 import Cart from "@/components/cart";
 import {rooms} from "@/lib/links";
 import Image from "next/image";
@@ -9,7 +9,7 @@ import {currencyFormatNumber} from "@/lib/currencyFormat";
 
 export default function Room() {
   const [showModal, setshowModal] = useState(false);
-  const {cartItems, addToCart} = useContext(CartContext);
+  const {cartItems, addToCart} = useContext(CartContext) as CartContextValue;
 
   const toggle = () => {
     setshowModal(!showModal);
