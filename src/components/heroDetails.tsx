@@ -29,7 +29,7 @@ export default function HeroDetails() {
               dateFormat="MM/dd/yyyy h:mm aa"
               showTimeInput
               placeholderText="Select Arrvial Date"
-              className="border-b border-b-black px-1 py-2 focus:outline-none"
+              className="border-b border-b-black px-1 py-2 focus:outline-none w-full"
             />
           </div>
 
@@ -43,7 +43,7 @@ export default function HeroDetails() {
               dateFormat="MM/dd/yyyy h:mm aa"
               showTimeInput
               placeholderText="Select Departure Date"
-              className="border-b border-b-black px-1 py-2 focus:outline-none"
+              className="border-b border-b-black px-1 py-2 focus:outline-none w-full"
             />
           </div>
 
@@ -52,7 +52,7 @@ export default function HeroDetails() {
             <select
               name=""
               id=""
-              className="border border-black px-1 py-2 focus:outline-none"
+              className="border border-black px-1 py-2 focus:outline-none w-full"
             >
               <option selected disabled>
                 Select Room Type
